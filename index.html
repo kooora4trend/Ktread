@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KERO TRADE - جميع وسائل التواصل الرسمية</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #0f172a;
+            --secondary: #1e293b;
+            --accent: #3b82f6;
+            --text: #f8fafc;
+            --text-secondary: #cbd5e1;
+            --success: #10b981;
+            --card-bg: rgba(30, 41, 59, 0.7);
+            --transition: all 0.3s ease;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Tajawal', 'Segoe UI', system-ui, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, var(--primary) 0%, #1e293b 100%);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+            background-attachment: fixed;
+        }
+        
+        /* Header Styles */
+        header {
+            background: rgba(15, 23, 42, 0.9);
+            backdrop-filter: blur(10px);
+            padding: 1rem 5%;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            border-bottom: 1px solid rgba(248, 250, 252, 0.1);
+        }
+        
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .logo h1 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            background: linear-gradient(to right, var(--accent), #60a5fa);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            letter-spacing: -0.5px;
+        }
+        
+        .logo-icon {
+            color: var(--accent);
+            font-size: 1.8rem;
+        }
+        
+        .cta-button {
+            background: linear-gradient(to right, var(--accent), #60a5fa);
+            color: var(--primary);
+            padding: 0.7rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(59, 130, 246, 0.3);
+        }
+        
+        /* Hero Section */
+        .hero {
+            padding: 10rem 5% 5rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .hero::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 10% 20%, rgba(59, 130, 246, 0.1) 0%, transparent 20%),
+                        radial-gradient(circle at 90% 80%, rgba(16, 185, 129, 0.1) 0%, transparent 20%);
+            pointer-events: none;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+            max-width: 900px;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+        
+        .hero h1 span {
+            background: linear-gradient(to right, var(--accent), #60a5fa);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .hero p {
+            font-size: 1.4rem;
+            max-width: 800px;
+            margin: 0 auto 2.5rem;
+            color: var(--text-secondary);
+        }
+        
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+        
+        .secondary-button {
+            background: transparent;
+            color: var(--text);
+            border: 2px solid var(--accent);
+            padding: 0.7rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        .secondary-button:hover {
+            background: rgba(59, 130, 246, 0.1);
+            transform: translateY(-3px);
+        }
+        
+        /* Channels Section */
+        .channels {
+            padding: 6rem 5%;
+            background: linear-gradient(135deg, var(--primary) 0%, #1e293b 100%);
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            position: relative;
+            padding-bottom: 1rem;
+        }
+        
+        .section-title::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(to right, var(--accent), #60a5fa);
+            border-radius: 2px;
+        }
+        
+        .section-subtitle {
+            text-align: center;
+            color: var(--text-secondary);
+            max-width: 700px;
+            margin: 0 auto 4rem;
+            font-size: 1.2rem;
+        }
+        
+        .channels-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .channel-card {
+            background: var(--card-bg);
+            border-radius: 15px;
+            padding: 2.5rem;
+            text-align: center;
+            width: 100%;
+            max-width: 350px;
+            transition: var(--transition);
+            border: 1px solid rgba(248, 250, 252, 0.1);
+        }
+        
+        .channel-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        .channel-icon {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .telegram { color: #0088cc; }
+        .youtube { color: #ff0000; }
+        .instagram { 
+            background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        .tiktok { color: #000000; }
+        .whatsapp { color: #25D366; }
+        .jaco { color: #8B5CF6; }
+        
+        .channel-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+        
+        .channel-card p {
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+        }
+        
+        /* Warning Section */
+        .warning {
+            padding: 6rem 5%;
+            background: var(--secondary);
+        }
+        
+        .warning-content {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 3rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .warning-text {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .warning-image {
+            flex: 1;
+            min-width: 300px;
+            background: linear-gradient(45deg, #0f172a, #1e293b);
+            border-radius: 15px;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(59, 130, 246, 0.3);
+        }
+        
+        .warning-image::before {
+            content: "";
+            position: absolute;
+            width: 200%;
+            height: 200%;
+            background: conic-gradient(
+                transparent, 
+                rgba(59, 130, 246, 0.3), 
+                transparent 30%
+            );
+            animation: rotate 6s linear infinite;
+        }
+        
+        @keyframes rotate {
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+        
+        .warning-image-content {
+            background: var(--primary);
+            width: calc(100% - 10px);
+            height: calc(100% - 10px);
+            border-radius: 12px;
+            z-index: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            text-align: center;
+        }
+        
+        .warning-image h3 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(to right, var(--accent), #60a5fa);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .warning-image ul {
+            text-align: right;
+            width: 100%;
+            padding: 0 1rem;
+            list-style: none;
+        }
+        
+        .warning-image li {
+            margin-bottom: 1rem;
+            position: relative;
+            padding-right: 1.5rem;
+        }
+        
+        .warning-image li::before {
+            content: "•";
+            color: var(--accent);
+            position: absolute;
+            right: 0;
+        }
+        
+        /* Final CTA */
+        .final-cta {
+            padding: 6rem 5%;
+            text-align: center;
+            background: linear-gradient(135deg, var(--primary) 0%, #1e293b 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .final-cta h2 {
+            font-size: 2.8rem;
+            margin-bottom: 1.5rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .final-cta p {
+            color: var(--text-secondary);
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 3rem;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 3rem;
+            flex-wrap: wrap;
+        }
+        
+        .social-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 0.8rem 1.8rem;
+            background: var(--card-bg);
+            border-radius: 50px;
+            text-decoration: none;
+            color: var(--text);
+            transition: var(--transition);
+            border: 1px solid rgba(248, 250, 252, 0.1);
+        }
+        
+        .social-link:hover {
+            transform: translateY(-5px);
+            background: rgba(30, 41, 59, 0.9);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .social-link i {
+            font-size: 1.5rem;
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--primary);
+            padding: 3rem 5%;
+            text-align: center;
+            border-top: 1px solid rgba(248, 250, 252, 0.1);
+        }
+        
+        .footer-note {
+            max-width: 700px;
+            margin: 0 auto;
+            padding: 1.5rem;
+            background: var(--card-bg);
+            border-radius: 15px;
+            font-size: 1.1rem;
+        }
+        
+        .copyright {
+            margin-top: 2rem;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+            
+            .section-title {
+                font-size: 2.2rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .hero {
+                padding-top: 12rem;
+            }
+            
+            .hero h1 {
+                font-size: 2.3rem;
+            }
+            
+            .hero p {
+                font-size: 1.2rem;
+            }
+            
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .warning-content {
+                flex-direction: column;
+            }
+            
+            .final-cta h2 {
+                font-size: 2.2rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .channel-card {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="navbar">
+            <div class="logo">
+                <i class="fas fa-chart-line logo-icon"></i>
+                <h1>KERO TRADE</h1>
+            </div>
+            <a href="#channels" class="cta-button">
+                <i class="fas fa-paper-plane"></i> تواصل معنا
+            </a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>✨ جميع وسائل التواصل الرسمية الخاصة بـ <span>Kero Trade</span> ✨</h1>
+        <p>للتواصل المباشر – التسجيل في الكورسات – المتابعة اليومية – وحماية نفسك من أي انتحال شخصية</p>
+        <div class="hero-buttons">
+            <a href="#channels" class="cta-button">
+                <i class="fas fa-play-circle"></i> تواصل الآن
+            </a>
+            <a href="#warning" class="secondary-button">
+                <i class="fas fa-shield-alt"></i> احمِ نفسك
+            </a>
+        </div>
+    </section>
+
+    <!-- Channels Section -->
+    <section class="channels" id="channels">
+        <h2 class="section-title">وسائل التواصل الرسمية</h2>
+        <p class="section-subtitle">تواصل معنا عبر المنصات الرسمية فقط</p>
+        
+        <div class="channels-container">
+            <div class="channel-card">
+                <i class="fab fa-telegram telegram channel-icon"></i>
+                <h3>قناة تيليجرام الرسمية</h3>
+                <p>تابعنا على تيليجرام للحصول على أحدث التحليلات والتحديثات اليومية</p>
+                <a href="https://t.me/kerotrade" target="_blank" class="cta-button">
+                    <i class="fab fa-telegram"></i> انضم الآن
+                </a>
+            </div>
+            
+            <div class="channel-card">
+                <i class="fab fa-tiktok tiktok channel-icon"></i>
+                <h3>تيك توك الرسمي</h3>
+                <p>تابع محتوانا على تيك توك لمحتوى مرئي سريع ومفيد</p>
+                <a href="https://www.tiktok.com/@kerotrade?_t=ZS-8yLk3FoYQ30&_r=1" target="_blank" class="cta-button">
+                    <i class="fab fa-tiktok"></i> تابعنا
+                </a>
+            </div>
+            
+            <div class="channel-card">
+                <i class="fab fa-whatsapp whatsapp channel-icon"></i>
+                <h3>جروب واتساب (الرسمي)</h3>
+                <p>انضم إلى جروب واتساب الرسمي للمناقشات والتحديثات</p>
+                <a href="https://chat.whatsapp.com/FQgvp6p4oEB4eE1y06rclh?mode=ems_copy_t" target="_blank" class="cta-button">
+                    <i class="fab fa-whatsapp"></i> انضم الآن
+                </a>
+            </div>
+            
+            <div class="channel-card">
+                <i class="fab fa-telegram telegram channel-icon"></i>
+                <h3>جروب المناقشات العامة</h3>
+                <p>انضم إلى جروب المناقشات العامة على تيليجرام</p>
+                <a href="https://t.me/+VAszuQ7inF0zY2Nk" target="_blank" class="cta-button">
+                    <i class="fab fa-telegram"></i> انضم الآن
+                </a>
+            </div>
+            
+            <div class="channel-card">
+                <i class="fab fa-youtube youtube channel-icon"></i>
+                <h3>قناة اليوتيوب</h3>
+                <p>اشترك في قناة اليوتيوب لمشاهدة الفيديوهات التعليمية والتحليلات</p>
+                <a href="https://youtube.com/@kerotrade?si=NZ7I4KRn2d2scVPO" target="_blank" class="cta-button">
+                    <i class="fab fa-youtube"></i> اشترك الآن
+                </a>
+            </div>
+            
+            <div class="channel-card">
+                <i class="fas fa-microphone jaco channel-icon"></i>
+                <h3>حسابي على تطبيق جاكو</h3>
+                <p>تابعني على تطبيق جاكو للبثوث المباشرة والمحتوى الصوتي</p>
+                <a href="https://l.jaco.live/FhOYcQyUro" target="_blank" class="cta-button">
+                    <i class="fas fa-microphone"></i> تابعني
+                </a>
+            </div>
+            
+            <div class="channel-card">
+                <i class="fab fa-instagram instagram channel-icon"></i>
+                <h3>حساب إنستجرام الرسمي</h3>
+                <p>تابع حساب إنستجرام الرسمي للمحتوى المرئي والستوريات اليومية</p>
+                <a href="https://instagram.com/kero_trade?igshid=OGQ5ZDc2ODk2ZA==" target="_blank" class="cta-button">
+                    <i class="fab fa-instagram"></i> تابعنا
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Direct Contact Section -->
+    <section class="channels">
+        <h2 class="section-title">التواصل المباشر</h2>
+        <p class="section-subtitle">للتواصل الشخصي والمباشر مع Kero Trade</p>
+        
+        <div class="channels-container">
+            <div class="channel-card">
+                <i class="fab fa-telegram telegram channel-icon"></i>
+                <h3>حسابي الوحيد على تيليجرام</h3>
+                <p>للتأكد من التواصل مع الحساب الرسمي، هذا هو حسابي الوحيد</p>
+                <a href="https://t.me/Kirellos_Amin" target="_blank" class="cta-button">
+                    <i class="fab fa-telegram"></i> @Kirellos_Amin
+                </a>
+            </div>
+            
+            <div class="channel-card">
+                <i class="fab fa-whatsapp whatsapp channel-icon"></i>
+                <h3>رقم التواصل الوحيد على واتساب</h3>
+                <p>هذا هو رقم التواصل الرسمي الوحيد على واتساب</p>
+                <a href="https://wa.me/201064589630" target="_blank" class="cta-button">
+                    <i class="fab fa-whatsapp"></i> +20 106 458 9630
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Warning Section -->
+    <section class="warning" id="warning">
+        <h2 class="section-title">تنبيه هام</h2>
+        <p class="section-subtitle">احذر من أي انتحال شخصية</p>
+        
+        <div class="warning-content">
+            <div class="warning-text">
+                <p>نظرًا لانتشار حالات انتحال الشخصية في عالم التداول عبر الإنترنت، نود التنبيه إلى أن Kero Trade لا يتواصل مع المتابعين إلا عبر القنوات الرسمية المذكورة أعلاه.</p>
+                <br>
+                <p>نرجو منكم توخي الحذر وعدم التعامل مع أي حسابات أو أرقام أخرى تدعي أنها تمثل Kero Trade.</p>
+                <br>
+                <p>نصائح للبقاء آمنًا:</p>
+                <br>
+                <ul>
+                    <li>لا تقم بإرسال أي أموال لأي شخص يدعي أنه Kero Trade</li>
+                    <li>لا تشارك معلوماتك الشخصية أو المصرفية مع أي شخص</li>
+                    <li>تأكد دائمًا من أنك تتواصل مع الحسابات الرسمية فقط</li>
+                    <li>في حالة الشك، راجع هذه الصفحة للتحقق من وسائل التواصل الرسمية</li>
+                </ul>
+            </div>
+            
+            <div class="warning-image">
+                <div class="warning-ima
